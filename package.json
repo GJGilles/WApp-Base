@@ -1,0 +1,10 @@
+{
+    "name": "Basic_Web_Template",
+    "version": "0.1.0",
+    "description": "A basic app template for creating web applications. Created by Glennarthyr Gillespie, Jan 2016",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GJGilles/WApp-Base.git"
+    },
+    "license": "UNLICENSED"
+}
