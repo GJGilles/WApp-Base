@@ -16,7 +16,9 @@
     "typescript": "^1.7.5"
   },
   "devDependencies": {
+    "add-stream": "^1.0.0",
     "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.8.0",
     "gulp-concat": "^2.6.0",
     "gulp-jshint": "^2.0.0",
     "gulp-less": "^3.0.5",

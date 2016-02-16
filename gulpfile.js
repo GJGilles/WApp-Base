@@ -1,12 +1,13 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
+var angularTemplateCache = require('gulp-angular-templatecache');
 var jshint = require('gulp-jshint');
 var less = require('gulp-less');
 var rename = require('gulp-rename');
-var serve = require('gulp-serve');
 var ts = require('gulp-typescript');
 var uglify = require('gulp-uglify');
 var serve = require('gulp-webserver');
+var addStream = require('add-stream');
 var path = require('path');
    
 var buildTask = function() {
@@ -23,12 +24,26 @@ var buildTask = function() {
     .pipe(concat('main.css'))
     .pipe(gulp.dest('Debug'));
     
+    //Copy Libraries
+    gulp.src('node_modules/**/*')
+    .pipe(gulp.dest('Debug/lib'));
+    
+    //Compile Template Cache
+    var templates =
+    gulp.src('src/ts/**/*.html')
+    .pipe(angularTemplateCache('templates.js', {
+        module: "WAppBase"
+    }));
+    
     //Compile TypeScript files
     gulp.src('src/**/*.ts')
     .pipe(ts({
         noImplicitAny: true,
         out: 'scripts.js'
     }))
+    .pipe(concat('scripts.js'))
+    .pipe(addStream.obj(templates))
+    .pipe(concat('scripts.js'))
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(uglify())
