@@ -15,7 +15,7 @@ module WAppBase {
     export function BaseAreaDirective(): angular.IDirective {
         return {
             controller: "BaseAreaController",
-            controllerAs: "baseAreaCtrl",
+            controllerAs: "baseCtrl",
             templateUrl: "baseArea/baseAreaTemplate.html"
         };
     }
