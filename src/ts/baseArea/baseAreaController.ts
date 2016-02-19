@@ -1,4 +1,4 @@
-/// <reference path='../../types/angular.d.ts' />
+/// <reference path='../angular_module.ts' />
 
 module WAppBase {
     export class BaseAreaController {
@@ -20,7 +20,7 @@ module WAppBase {
         };
     }
     
-    angular.module("WAppBase")
+    angular.module(SPECIAL_NAMES.MODULE_NAME)
         .controller("BaseAreaController", BaseAreaController)
         .directive("baseArea", BaseAreaDirective);
 }

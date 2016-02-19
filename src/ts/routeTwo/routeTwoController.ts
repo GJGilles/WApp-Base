@@ -1,4 +1,4 @@
-/// <reference path='../../types/angular.d.ts' />
+/// <reference path='../angular_module.ts' />
 
 module WAppBase {
     export class RouteTwoController {
@@ -12,6 +12,6 @@ module WAppBase {
         private dispose = () => {}
     }
     
-    angular.module("WAppBase")
+    angular.module(SPECIAL_NAMES.MODULE_NAME)
         .controller("RouteTwoController", RouteTwoController);
 }

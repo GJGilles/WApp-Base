@@ -3,6 +3,10 @@
 module WAppBase {
     export var WAppBase = angular.module('WAppBase', ["ngRoute"]);
     
+    export var SPECIAL_NAMES = {
+        MODULE_NAME: "WAppBase"
+    };
+    
     WAppBase.config(['$routeProvider', ($routeProvider: any) => {
         $routeProvider
         .when('/routeOne', {
